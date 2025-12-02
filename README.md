@@ -1,8 +1,7 @@
-# Tweet Disaster Classification (BERT / ModernBERT)
+# Tweet Disaster Classification (From TF-IDF to Transformers)
 
-This project fine-tunes a BERT-family model (DistilBERT, BERT-base, or ModernBERT-base)
-for disaster tweet classification using HuggingFace Transformers.
-
+This project fine-tunes between traditional Machine Learning models and BERT-family models
+for Tweet Disaster classification using HuggingFace Transformers.
 
 ## Folder structure
 
