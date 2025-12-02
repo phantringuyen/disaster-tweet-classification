@@ -61,8 +61,6 @@ python src/evaluate.py
 
 ```python
 """Preprocessing utilities: cleaning, tokenization, saving cleaned CSVs."""
-stop_words = set(stopwords.words('english'))
-lemmatizer = WordNetLemmatizer()
 
 def clean_text(text: str) -> str:
     text = re.sub(r"http\S+|www\S+", "", str(text))
@@ -73,18 +71,6 @@ def clean_text(text: str) -> str:
     tokens = [t for t in tokens if t not in stop_words and len(t) > 2]
     tokens = [lemmatizer.lemmatize(t) for t in tokens]
     return " ".join(tokens)
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--input', type=str, default='data/train.csv')
-    parser.add_argument('--output', type=str, default='data/train_clean.csv')
-    args = parser.parse_args()
-
-    df = pd.read_csv(args.input)
-    df['clean_text'] = df['text'].astype(str).apply(clean_text)
-    df.to_csv(args.output, index=False)
-    print('Saved:', args.output)
 ```
 
 ### `src/features.py` (TF-IDF vectorizer save/load)
@@ -105,18 +91,8 @@ def load_tfidf(path='results/tfidf_vectorizer.joblib'):
 ### `src/train_logreg.py`
 
 ```python
-if __name__ == '__main__':
-    df = pd.read_csv('data/train_clean.csv')
-    X = df['clean_text']
-    y = df['target']
-    tfidf, X_all = build_tfidf(X)
-    save_tfidf(tfidf)
-    X_train, X_val, y_train, y_val = train_test_split(X_all, y, test_size=0.2, random_state=42, stratify=y)
-    model = LogisticRegression(max_iter=3000)
-    model.fit(X_train, y_train)
-    preds = model.predict(X_val)
-    print(classification_report(y_val, preds))
-    joblib.dump(model, 'results/model_logreg.joblib')
+model = LogisticRegression(max_iter=3000)
+model.fit(X_train, y_train)
 ```
 
 ### `src/train_svm.py`, `train_random_forest.py`, `train_naive_bayes.py`
@@ -126,30 +102,13 @@ if __name__ == '__main__':
 ### `src/train_distilbert.py`
 
 ```python
-# fine-tuning DistilBERT with Trainer (uses cleaned text CSV)
-DF = pd.read_csv('data/train_clean.csv')
-X = DF['clean_text'].tolist()
-y = DF['target'].tolist()
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
 tokenizer = DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased')
 
 def tokenize(examples):
     return tokenizer(examples['text'], padding='max_length', truncation=True, max_length=160)
 
-train_ds = Dataset.from_dict({'text': X_train, 'labels': y_train}).map(tokenize, batched=True)
-val_ds   = Dataset.from_dict({'text': X_val, 'labels': y_val}).map(tokenize, batched=True)
-
-train_ds.set_format('torch', columns=['input_ids','attention_mask','labels'])
-val_ds.set_format('torch', columns=['input_ids','attention_mask','labels'])
-
 model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=2)
-
-def compute_metrics(p):
-    preds = np.argmax(p.predictions, axis=1)
-    precision, recall, f1, _ = precision_recall_fscore_support(p.label_ids, preds, average='binary')
-    acc = accuracy_score(p.label_ids, preds)
-    return {'accuracy': acc, 'precision': precision, 'recall': recall, 'f1': f1}
 
 training_args = TrainingArguments(
     output_dir='./results/distilbert',
@@ -173,7 +132,6 @@ trainer = Trainer(
 )
 
 trainer.train()
-trainer.save_model('results/model_distilbert')
 ```
 
 ### `src/train_modernbert.py`
@@ -182,7 +140,7 @@ trainer.save_model('results/model_distilbert')
 
 ### `src/utils.py`
 
-* small helpers: save/load models, plot confusion matrix, show random samples.
+* small helpers: save/load models, plot confusion matrix, show random samples, split train and validation dataset.
 
 ---
 
