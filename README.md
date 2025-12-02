@@ -1,10 +1,8 @@
-# disaster-tweet-classification
+# Tweet Disaster Classification (BERT / ModernBERT)
 
-# Tweet Disaster Classification — Project (Modular + Colab)
+This project fine-tunes a BERT-family model (DistilBERT, BERT-base, or ModernBERT-base)
+for disaster tweet classification using HuggingFace Transformers.
 
-This project folder contains Python source files and a Colab notebook for the Disaster Tweet Classification datathon. The structure, scripts, and README are below. Use the notebook for interactive exploration and the `src/` scripts for CLI runs.
-
----
 
 ## Folder structure
 
@@ -12,33 +10,47 @@ This project folder contains Python source files and a Colab notebook for the Di
 tweet-disaster-classification/
 │
 ├── notebooks/
-│   └── tweet_classification_colab.ipynb   # Colab-ready notebook (placeholder)
+│ └── tweet_classification_colab.ipynb # Colab-ready notebook (placeholder)
 │
 ├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py
-│   ├── features.py
-│   ├── train_logreg.py
-│   ├── train_svm.py
-│   ├── train_random_forest.py
-│   ├── train_naive_bayes.py
-│   ├── train_distilbert.py
-│   ├── train_modernbert.py
-│   └── utils.py
+│ ├── __init__.py
+│ ├── data_preprocessing.py
+│ ├── features.py
+│ ├── train_logreg.py
+│ ├── train_svm.py
+│ ├── train_random_forest.py
+│ ├── train_naive_bayes.py
+│ ├── train_distilbert.py
+│ ├── train_modernbert.py
+│ └── utils.py
 │
 ├── data/
-│   ├── README.md   # instructions to place train.csv & test.csv here
+│ ├── README.md # instructions to place train.csv & test.csv here
 │
 ├── results/
-│   ├── plots/
-│   └── model_checkpoints/
+│ ├── plots/
+│ └── model_checkpoints/
 │
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+
 ```
 
----
+## Contents
+- `tweet_disaster_classification.ipynb` — full Colab notebook
+- `src/train.py` — training script (HuggingFace Trainer)
+- `src/evaluate.py` — evaluation script
+- `src/utils.py` — preprocessing + dataset utilities
+- `requirements.txt` — package list
+- `data/` — dataset folder (ignored by Git)
+
+## How to Run
+```
+pip install -r requirements.txt
+python src/train.py
+python src/evaluate.py
+```
 
 ## Key files (templates)
 
