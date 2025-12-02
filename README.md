@@ -14,6 +14,8 @@ tweet-disaster-classification/
 │
 ├── src/
 │ ├── __init__.py
+│ ├── train.py
+│ ├── evaluate.py
 │ ├── data_preprocessing.py
 │ ├── features.py
 │ ├── train_logreg.py
