@@ -10,22 +10,25 @@ for disaster tweet classification using HuggingFace Transformers.
 tweet-disaster-classification/
 │
 ├── notebooks/
-│ └── tweet_classification_colab.ipynb # Colab-ready notebook (placeholder)
+│ └── tweet_classification_colab.ipynb
 │
 ├── src/
 │ ├── __init__.py
 │ ├── data_preprocessing.py
 │ ├── features.py
 │ ├── train_logreg.py
-│ ├── train_svm.py
 │ ├── train_random_forest.py
 │ ├── train_naive_bayes.py
+│ ├── train_svm.py
 │ ├── train_distilbert.py
+│ ├── train_bert.py
 │ ├── train_modernbert.py
+│ ├── train_roberta.py
 │ └── utils.py
 │
 ├── data/
-│ ├── README.md # instructions to place train.csv & test.csv here
+│ ├── train.csv
+│ ├── test.csv
 │
 ├── results/
 │ ├── plots/
