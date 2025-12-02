@@ -107,9 +107,6 @@ model.fit(X_train, y_train)
 
 tokenizer = DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased')
 
-def tokenize(examples):
-    return tokenizer(examples['text'], padding='max_length', truncation=True, max_length=160)
-
 model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=2)
 
 training_args = TrainingArguments(
@@ -136,9 +133,9 @@ trainer = Trainer(
 trainer.train()
 ```
 
-### `src/train_modernbert.py`
+### `src/train_bert.py`, `src/train_modernbert.py`, `src/train_roberta.py`
 
-* Same as `train_distilbert.py` but using `ModernBertForSequenceClassification` and its tokenizer (`answerdotai/ModernBERT-base`).
+* Same as `train_distilbert.py` but using `BertForSequenceClassification`, `ModernBertForSequenceClassification`, `RobertaForSequenceClassification` and its tokenizer.
 
 ### `src/utils.py`
 
