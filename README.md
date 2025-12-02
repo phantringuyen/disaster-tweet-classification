@@ -163,14 +163,4 @@ torch
 wordcloud
 ```
 
-## .gitignore
-
-```
-__pycache__/
-.ipynb_checkpoints/
-*.pyc
-results/
-data/*.csv
-```
-
 ---
