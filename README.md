@@ -4,7 +4,7 @@ This project fine-tunes between traditional Machine Learning models and BERT-fam
 for Tweet Disaster classification using HuggingFace Transformers.
 
 ## Main Pipeline
-<img src="https://imgur.com/cM8IpMH">
+<img src="https://github.com/phantringuyen/disaster-tweet-classification/blob/main/mainpipeline.png">
 
 ## Folder structure
 
