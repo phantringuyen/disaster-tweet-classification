@@ -143,8 +143,6 @@ trainer.train()
 
 * small helpers: save/load models, plot confusion matrix, show random samples, split train and validation dataset.
 
----
-
 ## requirements.txt
 
 ```
@@ -162,4 +160,90 @@ torch
 wordcloud
 ```
 
----
+
+
+
+## References
+```
+@misc{zisad2025comparativeanalysistransformermodels,
+      title={Comparative Analysis of Transformer Models in Disaster Tweet Classification for Public Safety}, 
+      author={Sharif Noor Zisad and N. M. Istiak Chowdhury and Ragib Hasan},
+      year={2025},
+      eprint={2509.04650},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.04650}, 
+}
+```
+```
+@misc{nlp-getting-started,
+    author = {Addison Howard and devrishi and Phil Culliton and Yufeng Guo},
+    title = {Natural Language Processing with Disaster Tweets},
+    year = {2019},
+    howpublished = {\url{https://kaggle.com/competitions/nlp-getting-started}},
+    note = {Kaggle}
+}
+```
+```
+@article{journalmedia1010005,
+    AUTHOR = {Seddighi, Hamed and Salmani, Ibrahim and Seddighi, Saeideh},
+    TITLE = {Saving Lives and Changing Minds with Twitter in Disasters and Pandemics: A Literature Review},
+    JOURNAL = {Journalism and Media},
+    VOLUME = {1},
+    YEAR = {2020},
+    NUMBER = {1},
+    PAGES = {59--77},
+    URL = {https://www.mdpi.com/2673-5172/1/1/5},
+    ISSN = {2673-5172},
+    DOI = {10.3390/journalmedia1010005}
+}
+```
+```
+@inbook{inbook,
+    author = {Webb, Geoffrey},
+    year = {2016},
+    month = {01},
+    pages = {1-2},
+    title = {Naïve Bayes},
+    isbn = {9781489975027},
+    doi = {10.1007/978-1-4899-7502-7_581-1}
+}
+```
+```
+@inproceedings{inproceedings,
+    author = {Liu, Cai-zhi and Sheng, Yan-xiu and Wei, Zhi-qiang and Yang, Yong-Quan},
+    year = {2018},
+    month = {08},
+    pages = {218-222},
+    title = {Research of Text Classification Based on Improved TF-IDF Algorithm},
+    doi = {10.1109/IRCE.2018.8492945}
+}
+```
+```
+@inproceedings{devlin-etal-2019-bert,
+    title = "{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    author = "Devlin, Jacob  and
+      Chang, Ming-Wei  and
+      Lee, Kenton  and
+      Toutanova, Kristina",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    month = jun,
+    year = "2019",
+    address = "Minneapolis, Minnesota",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N19-1423/",
+    doi = "10.18653/v1/N19-1423",
+    pages = "4171--4186",
+}
+```
+```
+@misc{sanh2020distilbertdistilledversionbert,
+      title={DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter}, 
+      author={Victor Sanh and Lysandre Debut and Julien Chaumond and Thomas Wolf},
+      year={2020},
+      eprint={1910.01108},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/1910.01108}, 
+}
+```
